@@ -1,31 +1,21 @@
-import re
-import os
-import sys
 import pickle
-sys.path.append("classes")
-from pin import Pin
-from delayobject import DelayObject
-from node import Node
+import sys
 import numpy as np
-import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 import networkx as nx
-from torch_geometric.utils import to_networkx
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch_geometric.data import Batch
-from torch_geometric.nn import GCNConv, GraphConv, global_mean_pool
+from torch.utils.data import DataLoader, random_split
 from torch_geometric.data import Data
 from torch.nn import Linear
-import torch.nn.functional as F
-from constants import *
-import torch.utils.data
-from torch.utils.data import Dataset, DataLoader, random_split
+from torch.utils.data import Dataset
 from edge_generator import EdgeGenerator
 from matrix_generator import MatrixGenerator
 from combined_generator import CombinedGenerator
 from discriminator import Discriminator
+from constants import *
+
 
 edge_generator = EdgeGenerator(INPUT_SIZE_GEN, HIDDEN_SIZE_GEN, OUTPUT_SIZE_EDGE_GEN)
 matrix_generator = MatrixGenerator(INPUT_SIZE_GEN, HIDDEN_SIZE_GEN, OUTPUT_SIZE_MAT_GEN)
