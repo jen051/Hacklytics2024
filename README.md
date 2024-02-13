@@ -1,6 +1,6 @@
 # Robotic Registers
 ## Dataset
-The Model has been trained on the dataset created by Ajay Yadav of VDA Lab. The dataset consists of graphs of nodes which are instances of logic circuits, that is the net, input, and output pins. for more information about the dataset and usage please visit: https://github.com/ajay3568yadav/SURI
+The Model has been trained on the dataset created by Ajay Yadav of VDA Lab. The dataset consists of graphs of nodes which are instances of logic circuits. for more information about the dataset and usage please visit: https://github.com/ajay3568yadav/SURI
 
 ## About
 Moore Circuit Gen 1 (MCG-1) is a Graph GAN Deep Learning model trained on over 50,000 existing digital logic circuits. It can generate viable random digital logic circuits without discontinuities or improper connections.
