@@ -73,7 +73,7 @@ def get_fake_data(batch_size, combined):
     return fake_graphs 
     
 for epoch in range(num_epochs):
-
+    combined.train()
     for i, batch in enumerate(train_loader,0):
         #DISCRIM TRAINING W/ REAL DATASET
         batch = batch.to(device)
