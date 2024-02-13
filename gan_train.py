@@ -138,6 +138,29 @@ for epoch in range(num_epochs):
         G_losses.append(errG.item())
         D_losses.append(errD.item())
 
+# Setting the model for evaluation mode
+combined.eval()
+
+# Define the device (XPU or CPU) for tensor computations
+device = torch.device("xpu" if torch.cuda.is_available() else "cpu")
+
+# Iterate over the test loader
+for i, batch in enumerate(test_loader):
+    # Move batch to the selected device
+    batch = batch.to(device)
+
+    fake_data = get_fake_data(batch.size(0), combined)
+
+    # Move generated data to the selected device
+    fake_data = [data.to(device) for data in fake_data]
+
+    for data in fake_data:
+        # Perform any additional processing or evaluation here
+        print(data)
+        
+    break
+
+
 ay = get_fake_data(64, combined)
 
 def deconstructor(matrix):
