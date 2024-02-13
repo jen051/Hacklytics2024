@@ -160,16 +160,4 @@ for i, batch in enumerate(test_loader):
         
     break
 
-
-ay = get_fake_data(64, combined)
-
-def deconstructor(matrix):
-    mat1 = matrix[:, :3]  # Columns 0 to 2
-    mat2 = matrix[:, 3:]  # The rest of the columns
-    return mat1, mat2
-
-node_features, adj = deconstructor(ay[0])
-edge_list = torch.nonzero(adj, as_tuple=False).t()
-data_obj = Data(x=node_features, y = 0, edge_index = edge_list)
-
 torch.save(combined.state_dict(), "model.pth")
